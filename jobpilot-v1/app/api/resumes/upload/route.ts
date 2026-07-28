@@ -13,7 +13,7 @@ const MAX_SIZE_MB = 10;
 export async function POST(req: Request) {
   let userId: string;
   try {
-    userId = getUserIdFromRequest(req);
+    userId = await getUserIdFromRequest(req);
   } catch (e) {
     if (e instanceof AuthError) {
       return NextResponse.json({ detail: e.message }, { status: 401 });
